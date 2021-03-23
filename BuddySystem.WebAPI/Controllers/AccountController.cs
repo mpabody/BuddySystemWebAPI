@@ -17,6 +17,8 @@ using BuddySystem.WebAPI.Models;
 using BuddySystem.WebAPI.Providers;
 using BuddySystem.WebAPI.Results;
 using BuddySystem.Data;
+using BuddySystem.Models.UserModels;
+using BuddySystem.Services;
 
 namespace BuddySystem.WebAPI.Controllers
 {
@@ -341,6 +343,51 @@ namespace BuddySystem.WebAPI.Controllers
             return Ok();
         }
 
+        [Route("GetAllUsers")]
+        public IHttpActionResult Get()
+        {
+            var users = CreateUserService().GetAllUsers();
+            return Ok(users);
+        }
+
+        [Route("GetUser/{id}")]
+        public IHttpActionResult Get(string id)
+        {
+            var user = CreateUserService().GetUserById(id);
+            return Ok(user);
+        }
+
+        [Route("GetProfileDetails")]
+        public IHttpActionResult GetUserDetails()
+        {
+            var user = CreateUserService().GetUserDetails();
+            return Ok(user);
+        }
+
+        [Route("Edit")]
+        public IHttpActionResult Put(UserEdit model)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            if (!CreateUserService().UpdateUser(model))
+                return InternalServerError();
+
+            return Ok();
+        }
+
+        [Route("Delete/{id}")]
+        public IHttpActionResult Delete(string id)
+        {
+
+            if (!CreateUserService().DeleteUser(id))
+            {
+                return InternalServerError();
+            }
+
+            return Ok();
+        }
+
         // POST api/Account/RegisterExternal
         [OverrideAuthentication]
         [HostAuthentication(DefaultAuthenticationTypes.ExternalBearer)]
@@ -390,6 +437,11 @@ namespace BuddySystem.WebAPI.Controllers
         private IAuthenticationManager Authentication
         {
             get { return Request.GetOwinContext().Authentication; }
+        }
+
+        private UserService CreateUserService()
+        {
+            return new UserService(User.Identity.GetUserId());
         }
 
         private IHttpActionResult GetErrorResult(IdentityResult result)
