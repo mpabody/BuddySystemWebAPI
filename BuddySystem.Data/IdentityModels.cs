@@ -19,6 +19,14 @@ namespace BuddySystem.Data
             // Add custom user claims here
             return userIdentity;
         }
+
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string FullName => FirstName + LastName;
+        public string Address { get; set; }
+        public string PhoneNumber { get; set; }
+        //virtual list of UserReviews
+        //virtual list of BuddyReviews
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
@@ -33,7 +41,7 @@ namespace BuddySystem.Data
             return new ApplicationDbContext();
         }
 
-        //DbSet
+        public DbSet<Campus> Campuses { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

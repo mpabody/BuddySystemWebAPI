@@ -329,7 +329,7 @@ namespace BuddySystem.WebAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
+            var user = new ApplicationUser() { UserName = model.Email, Email = model.Email, FirstName = model.FirstName, LastName = model.LastName, Address = model.Address, PhoneNumber = model.PhoneNumber};
 
             IdentityResult result = await UserManager.CreateAsync(user, model.Password);
 
