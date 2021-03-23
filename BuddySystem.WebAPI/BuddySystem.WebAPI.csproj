@@ -311,6 +311,14 @@
       <Project>{1201F1F9-E9A0-4F79-A9B8-17238AADAC61}</Project>
       <Name>BuddySystem.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\BuddySystem.Models\BuddySystem.Models.csproj">
+      <Project>{9EF8207C-3505-47DA-B437-80E70DAB4251}</Project>
+      <Name>BuddySystem.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BuddySystem.Services\BuddySystem.Services.csproj">
+      <Project>{DDBEADE7-B5F5-42AB-AABD-EB0A1D73DAA1}</Project>
+      <Name>BuddySystem.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

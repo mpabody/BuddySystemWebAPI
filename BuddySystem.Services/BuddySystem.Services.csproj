@@ -55,10 +55,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BuddySystem.Data\BuddySystem.Data.csproj">
+      <Project>{1201F1F9-E9A0-4F79-A9B8-17238AADAC61}</Project>
+      <Name>BuddySystem.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BuddySystem.Models\BuddySystem.Models.csproj">
+      <Project>{9EF8207C-3505-47DA-B437-80E70DAB4251}</Project>
+      <Name>BuddySystem.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

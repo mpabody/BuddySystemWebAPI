@@ -17,6 +17,8 @@ using BuddySystem.WebAPI.Models;
 using BuddySystem.WebAPI.Providers;
 using BuddySystem.WebAPI.Results;
 using BuddySystem.Data;
+using BuddySystem.Models.UserModels;
+using BuddySystem.Services;
 
 namespace BuddySystem.WebAPI.Controllers
 {
@@ -24,6 +26,8 @@ namespace BuddySystem.WebAPI.Controllers
     [RoutePrefix("api/Account")]
     public class AccountController : ApiController
     {
+        private readonly UserService _userService = new UserService(); 
+
         private const string LocalLoginProvider = "Local";
         private ApplicationUserManager _userManager;
 
@@ -340,6 +344,40 @@ namespace BuddySystem.WebAPI.Controllers
 
             return Ok();
         }
+
+        //public IHttpActionResult Get()
+        //{
+        //    var users = _userService.GetAllUsers;
+        //    return Ok(users);
+        //}
+
+        //public IHttpActionResult Get(int id)
+        //{
+        //    var user = _userService.GetUserProfile(id);
+        //    return Ok(user);
+        //}
+
+        public IHttpActionResult Put(UserEdit model)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            if (!_userService.UpdateUser(model))
+                return InternalServerError();
+
+            return Ok();
+        }
+
+        //public IHttpActionResult Delete(int id)
+        //{
+
+        //    if (!_userService.DeleteUser(id))
+        //    {
+        //        return InternalServerError();
+        //    }
+
+        //    return Ok();
+        //}
 
         // POST api/Account/RegisterExternal
         [OverrideAuthentication]
