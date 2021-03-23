@@ -350,14 +350,14 @@ namespace BuddySystem.WebAPI.Controllers
             return Ok(users);
         }
 
-        [Route("GetById")]
+        [Route("GetUser/{id}")]
         public IHttpActionResult Get(string id)
         {
             var user = CreateUserService().GetUserById(id);
             return Ok(user);
         }
 
-        [Route("GetUserDetails")]
+        [Route("GetProfileDetails")]
         public IHttpActionResult GetUserDetails()
         {
             var user = CreateUserService().GetUserDetails();
@@ -376,7 +376,7 @@ namespace BuddySystem.WebAPI.Controllers
             return Ok();
         }
 
-        [Route("Delete")]
+        [Route("Delete/{id}")]
         public IHttpActionResult Delete(string id)
         {
 

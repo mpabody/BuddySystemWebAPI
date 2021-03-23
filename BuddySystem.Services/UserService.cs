@@ -28,7 +28,8 @@ namespace BuddySystem.Services
                         e =>
                         new UserListItem
                         {
-                            FullName = e.FullName,
+                            FirstName = e.FirstName,
+                            LastName = e.LastName,
                             UserName = e.UserName
                         });
                 return query.ToList();
@@ -46,7 +47,8 @@ namespace BuddySystem.Services
                 return new UserDetail
                 {
                     Id = entity.Id,
-                    FullName = entity.FullName,
+                    FirstName = entity.FirstName,
+                    LastName = entity.LastName,
                     Address = entity.Address,
                     PhoneNumber = entity.PhoneNumber,
                     Email = entity.Email
@@ -65,7 +67,8 @@ namespace BuddySystem.Services
                 return new UserDetail
                 {
                     Id = entity.Id,
-                    FullName = entity.FullName,
+                    FirstName = entity.FirstName,
+                    LastName = entity.LastName,
                     Address = entity.Address,
                     PhoneNumber = entity.PhoneNumber,
                     Email = entity.Email
