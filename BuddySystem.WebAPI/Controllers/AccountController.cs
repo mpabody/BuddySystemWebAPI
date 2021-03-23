@@ -26,8 +26,6 @@ namespace BuddySystem.WebAPI.Controllers
     [RoutePrefix("api/Account")]
     public class AccountController : ApiController
     {
-        private readonly UserService _userService = new UserService(); 
-
         private const string LocalLoginProvider = "Local";
         private ApplicationUserManager _userManager;
 
@@ -345,39 +343,50 @@ namespace BuddySystem.WebAPI.Controllers
             return Ok();
         }
 
-        //public IHttpActionResult Get()
-        //{
-        //    var users = _userService.GetAllUsers;
-        //    return Ok(users);
-        //}
+        [Route("GetAllUsers")]
+        public IHttpActionResult Get()
+        {
+            var users = CreateUserService().GetAllUsers();
+            return Ok(users);
+        }
 
-        //public IHttpActionResult Get(int id)
-        //{
-        //    var user = _userService.GetUserProfile(id);
-        //    return Ok(user);
-        //}
+        [Route("GetById")]
+        public IHttpActionResult Get(string id)
+        {
+            var user = CreateUserService().GetUserById(id);
+            return Ok(user);
+        }
 
+        [Route("GetUserDetails")]
+        public IHttpActionResult GetUserDetails()
+        {
+            var user = CreateUserService().GetUserDetails();
+            return Ok(user);
+        }
+
+        [Route("Edit")]
         public IHttpActionResult Put(UserEdit model)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            if (!_userService.UpdateUser(model))
+            if (!CreateUserService().UpdateUser(model))
                 return InternalServerError();
 
             return Ok();
         }
 
-        //public IHttpActionResult Delete(int id)
-        //{
+        [Route("Delete")]
+        public IHttpActionResult Delete(string id)
+        {
 
-        //    if (!_userService.DeleteUser(id))
-        //    {
-        //        return InternalServerError();
-        //    }
+            if (!CreateUserService().DeleteUser(id))
+            {
+                return InternalServerError();
+            }
 
-        //    return Ok();
-        //}
+            return Ok();
+        }
 
         // POST api/Account/RegisterExternal
         [OverrideAuthentication]
@@ -428,6 +437,11 @@ namespace BuddySystem.WebAPI.Controllers
         private IAuthenticationManager Authentication
         {
             get { return Request.GetOwinContext().Authentication; }
+        }
+
+        private UserService CreateUserService()
+        {
+            return new UserService(User.Identity.GetUserId());
         }
 
         private IHttpActionResult GetErrorResult(IdentityResult result)
