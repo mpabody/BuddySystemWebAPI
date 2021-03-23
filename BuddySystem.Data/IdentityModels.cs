@@ -24,7 +24,7 @@ namespace BuddySystem.Data
         public string LastName { get; set; }
         public string FullName => FirstName + LastName;
         public string Address { get; set; }
-        public string PhoneNumber { get; set; }
+        public override string PhoneNumber { get; set; }
         //virtual list of UserReviews
         //virtual list of BuddyReviews
     }
