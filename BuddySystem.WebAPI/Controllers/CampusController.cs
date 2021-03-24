@@ -24,5 +24,15 @@ namespace BuddySystem.WebAPI.Controllers
 
             return Ok();
         }
+
+        public IHttpActionResult Get()
+        {
+            var campuses = _campusService.GetAllCampuses();
+            if (campuses.Any())
+            {
+                return Ok(campuses);
+            }
+            return BadRequest("There are no campuses in the database.");
+        }
     }
 }

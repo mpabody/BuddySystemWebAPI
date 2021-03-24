@@ -25,5 +25,24 @@ namespace BuddySystem.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+
+        public IEnumerable<CampusListItem> GetAllCampuses()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                    .Campuses
+                    .Select(
+                        e =>
+                        new CampusListItem
+                        {
+                            CampusId = e.CampusId,
+                            Name = e.Name,
+                            Address = e.Address
+                        });
+                return query.ToList();
+            }
+        }
     }
 }
