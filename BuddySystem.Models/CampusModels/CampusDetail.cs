@@ -5,13 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BuddySystem.Data
+namespace BuddySystem.Models.CampusModels
 {
-    public class Campus
+    public class CampusDetail
     {
-        [Key]
-        public int CampusId { get; set; }
-
         [Required]
         public string Name { get; set; }
 
