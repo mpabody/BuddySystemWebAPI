@@ -34,5 +34,34 @@ namespace BuddySystem.WebAPI.Controllers
             }
             return BadRequest("There are no campuses in the database.");
         }
+
+        public IHttpActionResult Get(int id)
+        {
+            var campus = _campusService.GetCampusById(id);
+            if (campus != null)
+            {
+                return Ok(campus);
+            }
+            return BadRequest("There is no campus with that Id");
+        }
+
+        public IHttpActionResult Put(CampusEdit campus)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            if (!_campusService.UpdateCampus(campus))
+                return InternalServerError();
+
+            return Ok();
+        }
+
+        public IHttpActionResult Delete(int id)
+        {
+            if (!_campusService.DeleteCampus(id))
+                return InternalServerError();
+
+            return Ok("This campus was deleted");
+        }
     }
 }

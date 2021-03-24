@@ -9,6 +9,8 @@ namespace BuddySystem.Models.CampusModels
 {
     public class CampusDetail
     {
+        public int CampusId { get; set; }
+
         [Required]
         public string Name { get; set; }
 

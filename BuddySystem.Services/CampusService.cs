@@ -44,5 +44,56 @@ namespace BuddySystem.Services
                 return query.ToList();
             }
         }
+
+        public CampusDetail GetCampusById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Campuses
+                    .Single(e => e.CampusId == id);
+
+                return new CampusDetail
+                {
+                    CampusId = entity.CampusId,
+                    Name = entity.Name,
+                    Address = entity.Address,
+                    PhoneNumber = entity.PhoneNumber
+                };
+            }
+        }
+
+        public bool UpdateCampus(CampusEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Campuses
+                    .Single(e => e.CampusId == model.CampusId);
+
+                entity.Name = model.Name;
+                entity.Address = model.Address;
+                entity.PhoneNumber = model.PhoneNumber;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+        public bool DeleteCampus(int campusId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Campuses
+                    .Single(e => e.CampusId == campusId);
+
+                ctx.Campuses.Remove(entity); // soft delete - entity.isDeactiviated = true;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }
