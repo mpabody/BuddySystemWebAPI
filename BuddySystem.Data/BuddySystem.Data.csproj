@@ -86,11 +86,28 @@
   <ItemGroup>
     <Compile Include="Campus.cs" />
     <Compile Include="IdentityModels.cs" />
+    <Compile Include="Migrations\202103231457521_InitialCreate.cs" />
+    <Compile Include="Migrations\202103231457521_InitialCreate.Designer.cs">
+      <DependentUpon>202103231457521_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103241808338_AddedPropsToCampus.cs" />
+    <Compile Include="Migrations\202103241808338_AddedPropsToCampus.Designer.cs">
+      <DependentUpon>202103241808338_AddedPropsToCampus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202103231457521_InitialCreate.resx">
+      <DependentUpon>202103231457521_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103241808338_AddedPropsToCampus.resx">
+      <DependentUpon>202103241808338_AddedPropsToCampus.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
