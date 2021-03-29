@@ -85,6 +85,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Campus.cs" />
+    <Compile Include="CampusUser.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Migrations\202103231457521_InitialCreate.cs" />
     <Compile Include="Migrations\202103231457521_InitialCreate.Designer.cs">
@@ -93,6 +94,10 @@
     <Compile Include="Migrations\202103241808338_AddedPropsToCampus.cs" />
     <Compile Include="Migrations\202103241808338_AddedPropsToCampus.Designer.cs">
       <DependentUpon>202103241808338_AddedPropsToCampus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103292055115_addedCampusUser.cs" />
+    <Compile Include="Migrations\202103292055115_addedCampusUser.Designer.cs">
+      <DependentUpon>202103292055115_addedCampusUser.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -107,6 +112,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202103241808338_AddedPropsToCampus.resx">
       <DependentUpon>202103241808338_AddedPropsToCampus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103292055115_addedCampusUser.resx">
+      <DependentUpon>202103292055115_addedCampusUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

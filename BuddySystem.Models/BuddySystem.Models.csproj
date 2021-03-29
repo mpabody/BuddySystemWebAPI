@@ -58,6 +58,7 @@
     <Compile Include="CampusModels\CampusDetail.cs" />
     <Compile Include="CampusModels\CampusEdit.cs" />
     <Compile Include="CampusModels\CampusListItem.cs" />
+    <Compile Include="CampusUserModels\CampusUserCreate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserModels\UserDetail.cs" />
     <Compile Include="UserModels\UserEdit.cs" />
