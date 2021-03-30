@@ -87,6 +87,7 @@
     <Compile Include="Campus.cs" />
     <Compile Include="CampusUser.cs" />
     <Compile Include="IdentityModels.cs" />
+    <Compile Include="Location.cs" />
     <Compile Include="Migrations\202103231457521_InitialCreate.cs" />
     <Compile Include="Migrations\202103231457521_InitialCreate.Designer.cs">
       <DependentUpon>202103231457521_InitialCreate.cs</DependentUpon>
