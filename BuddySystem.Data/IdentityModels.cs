@@ -42,6 +42,7 @@ namespace BuddySystem.Data
         public DbSet<Campus> Campuses { get; set; }
         public DbSet<CampusUser> CampusUsers { get; set; }
         public DbSet<Location> Locations { get; set; }
+        public DbSet<Trip> Trips { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
