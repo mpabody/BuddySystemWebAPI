@@ -9,6 +9,7 @@ namespace BuddySystem.Models.LocationModels
 {
     public class LocationEdit
     {
+        [Required]
         public int LocationId { get; set; }
 
         [Required]

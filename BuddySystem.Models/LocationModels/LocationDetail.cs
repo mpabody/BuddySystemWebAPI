@@ -11,7 +11,8 @@ namespace BuddySystem.Models.LocationModels
     {
         public int LocationId { get; set; }
         public int CampusId { get; set; }
-        public virtual CampusListItem Campus { get; set; }
+        public string CampusName { get; set; }
+        //public virtual CampusListItem Campus { get; set; }
         public string LocationName { get; set; }
         public string Address { get; set; }
         public string LocationNotes { get; set; }
