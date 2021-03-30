@@ -87,6 +87,7 @@
     <Compile Include="Campus.cs" />
     <Compile Include="CampusUser.cs" />
     <Compile Include="IdentityModels.cs" />
+    <Compile Include="Location.cs" />
     <Compile Include="Migrations\202103231457521_InitialCreate.cs" />
     <Compile Include="Migrations\202103231457521_InitialCreate.Designer.cs">
       <DependentUpon>202103231457521_InitialCreate.cs</DependentUpon>
@@ -98,6 +99,10 @@
     <Compile Include="Migrations\202103292055115_addedCampusUser.cs" />
     <Compile Include="Migrations\202103292055115_addedCampusUser.Designer.cs">
       <DependentUpon>202103292055115_addedCampusUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103300245549_addedLocationTable.cs" />
+    <Compile Include="Migrations\202103300245549_addedLocationTable.Designer.cs">
+      <DependentUpon>202103300245549_addedLocationTable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -115,6 +120,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202103292055115_addedCampusUser.resx">
       <DependentUpon>202103292055115_addedCampusUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103300245549_addedLocationTable.resx">
+      <DependentUpon>202103300245549_addedLocationTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
